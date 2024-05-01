@@ -1,1 +1,37 @@
+`timescale 1 ns / 1 ns
+`include "wireTest.v"
 
+module wireTest_tb;
+
+//these are our wires
+reg A;
+wire B;
+wire C;
+
+//making an instance of wiiretest
+wireTest uut(A, B, C);
+
+initial begin
+
+//the next lines are putting the outputs in the files stated
+    $dumpfile("wireTest_tb.vcd");
+    $dumpvars(0, wireTest_tb);
+
+// #20 states to wait 20 ns before next wire
+    A = 0;
+    #20
+
+    A = 1;
+    #20
+
+    A = 0;
+    #20
+
+    A = 1;
+    #20
+
+    $display("Wire test complete!");
+
+end
+
+endmodule
