@@ -1,0 +1,17 @@
+// Class: CSCI 401 Computer Architecture
+// Term: Fall2023
+//Name: Hector Alba
+
+module pc_mod (
+    output reg [31:0] PC,       //Output of pc_mod
+    input wire [31:0] npc       //Input of pc_mod
+    );
+
+    initial begin
+        PC <= 0;
+    end
+    always @ (npc) begin
+        #1 PC <= npc;
+    end
+
+endmodule //pc_mod
